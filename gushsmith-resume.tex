@@ -1,0 +1,141 @@
+\documentclass[letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{changepage} % for adjustwidth
+\usepackage{bibentry} % for publications
+
+\usepackage{geometry}
+\geometry{
+	letterpaper,
+	left=15mm,
+	top=1in,
+}
+
+% Parameters
+\newcommand{\primaryindent}{1.5cm} % the primary level of indentation that most everything is indented to
+\setlength{\parindent}{0cm} % first-line indent for paragraphs
+
+% Redefine section style
+\usepackage{sectsty}
+\sectionfont{
+	\normalfont\sffamily\large
+	\sectionrule{11pt}{1pt}{0pt}{0pt}}
+
+
+\newcommand{\resumesubsection}[1]{
+	\vspace{1.5ex}
+	\noindent \large \textsf{{#1}}\par
+	\vspace{.5ex}
+	\normalsize
+}
+
+\newcommand{\name}[1]{ 
+	\Huge  \textsf{\textbf{#1}}
+	\vspace{0.1em}
+	\par \normalsize \normalfont}
+
+\newcommand{\personalinfo}[1]{
+	\large  #1 
+	\par \normalsize \normalfont}
+
+% this environment indents to \primaryindent.
+\newenvironment{indented}{\begin{adjustwidth}{\primaryindent}{0em}}{\end{adjustwidth}}
+
+% this environment is used to generate lists in this resume.
+\newenvironment{resumelist}{\begin{itemize}[topsep=0pt,noitemsep,itemindent=-15pt,leftmargin=30pt]}{\end{itemize}}
+
+\newcommand{\generalentry}[5]{
+	\begin{indented}
+		\Large \textsf{\textbf{#1}} \hfill	% Study
+			\hfill\normalsize\textit{#2} \par  			% Location
+		\noindent \large \textsf{\textbf{\textit{#3}}} 	% Subtitle
+			\hfill \normalsize #4\par 					% Time
+		\normalsize \normalfont #5 \par					% Rest of content
+		\normalsize \normalfont
+	\end{indented}
+	}
+
+\begin{document}
+	
+\pagenumbering{gobble} % no page numbering
+	
+\begin{center}
+	\name{Gus Henry Smith}
+	\personalinfo{107 NE 43rd St Apt 3, Seattle, WA 98105}
+	\personalinfo{\url{http://justg.us} -- (570)817-9340 -- \href{mailto:gussmith@uw.edu}{gussmith@cs.washington.edu}}
+\end{center}
+
+\section*{Objective}
+
+\hspace{2cm} % TODO better indentation PLEASE, this is pretty embarrassing
+To obtain an internship in the fields of Computer Science and Computer Engineering, with a
+
+\hspace{2cm} focus in Computer Architecture, Systems, or Programming Languages.
+
+\section*{Education}
+
+\generalentry{University of Washington}{Seattle, WA}{Paul G.~Allen School of Computer Science and Engineering}{Since Fall 2018}{
+	\begin{resumelist}
+		\item Ph.D. in Computer Science and Engineering with a focus in Computer Architecture
+		\item Advisor: Luis Ceze
+	\end{resumelist}
+}
+
+\vspace{2mm}
+
+\generalentry{The Pennsylvania State University}{University Park, PA}{The Schreyer Honors College}{Graduated May 2018}{
+	% TODO handle margin in educationentry command
+	% TODO handle topsep there too
+	\begin{resumelist}
+		\item B.S/M.S.~in Computer Science and Engineering
+		\item Thesis: \textit{Designing Processing in Memory Architectures via Static Analysis of Real Programs} (\href{https://github.com/gussmith23/masters-thesis/releases}{link})
+	\end{resumelist}
+}
+
+
+\section*{Experience}
+
+\generalentry{Google}{San Francisco, CA}{Software Engineering Intern on Fuchsia}{May--August 2018}{
+	\begin{resumelist}
+		\item Implemented the RFCOMM Bluetooth protocol for the Fuchsia Bluetooth stack
+		\item Gained firsthand system design experience
+	\end{resumelist}
+}
+\vspace{2mm} % TODO is there a better way to do this?
+
+\generalentry{Microsystems Design Laboratory}{University Park, PA}{Researcher, Team Lead}{May 2014--May 2018}{
+	\begin{resumelist}
+		\item Contributed to ``Visual Cortex on Silicon'' NSF Expedition in Computing
+		\item Led a 5-person application development team in designing machine vision hardware/software to aid the visually impaired
+	\end{resumelist}
+}
+
+\vspace{2mm}
+
+\generalentry{Google}{Seattle, WA}{Software Engineering Intern on Chrome}{May--August 2017}{
+	\begin{resumelist}
+		\item Contributed to the open-source Chromium project
+	\end{resumelist}
+}
+\vspace{2mm}
+
+\generalentry{Google}{Mountain View, CA}{Software Engineering Intern on Android Internal Tools}{May--August 2016}{
+	\begin{resumelist}
+		\item Committed code into the closed- and open-source Android trees, reaching a wide audience of both internal and external developers
+	\end{resumelist}
+}
+
+\vspace{2mm}
+\begin{indented}
+	\large \textsf{\textbf{Technical Skills}}
+	\normalsize \normalfont \par
+	\begin{resumelist}
+		\item \textbf{Languages:} C++, Python, C, Java, Verilog, SystemVerilog
+		\item \textbf{Platforms:} Linux, Xilinx 7 series FPGAs
+	\end{resumelist}
+\end{indented}
+
+\end{document}
